@@ -1,12 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using UniComparer.Repository.Abstract;
 
 namespace UniComparer.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        private readonly IGradeCategoryRepository gradeCategoryRepository;
+        public HomeController(IGradeCategoryRepository gradeCategoryRepository)
         {
-            return View();
+            this.gradeCategoryRepository = gradeCategoryRepository;
         }
+        public IActionResult Index() => View(gradeCategoryRepository.GetGradeCategories());
     }
 }

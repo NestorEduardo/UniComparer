@@ -1,4 +1,6 @@
-﻿@{
+﻿@model ICollection<GradeCategory>
+
+@{
     ViewBag.Title = "Inicio";
 }
 <div class="shap_big_2 d-none d-lg-block">
@@ -121,83 +123,20 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="case_active owl-carousel">
-                    <div class="single_study text-center">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="~/img/1.png" />
-                            </a>
+                    @foreach (GradeCategory gradeCategory in Model)
+                    {
+                        <div class="single_study text-center">
+                            <div class="thumb">
+                                <a href="#">
+                                    <img src="@Url.Content(gradeCategory.ImageUrl)" />
+                                </a>
+                            </div>
+                            <div class="subheading">
+                                <h4><a href="#">@gradeCategory.Name</a></h4>
+                                <p>@gradeCategory.Description</p>
+                            </div>
                         </div>
-                        <div class="subheading">
-                            <h4><a href="#">Product Design</a></h4>
-                            <p>UI/UX, Design</p>
-                        </div>
-                    </div>
-                    <div class="single_study text-center">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="~/img/2.png" />
-                            </a>
-                        </div>
-                        <div class="subheading">
-                            <h4><a href="#">Custom Website</a></h4>
-                            <p>UI/UX, Design</p>
-                        </div>
-                    </div>
-                    <div class="single_study text-center">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="~/img/3.png" />
-                            </a>
-                        </div>
-                        <div class="subheading">
-                            <h4><a href="#">Digital Marketing</a></h4>
-                            <p>UI/UX, Design</p>
-                        </div>
-                    </div>
-                    <div class="single_study text-center">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="~/img/1.png" />
-                            </a>
-                        </div>
-                        <div class="subheading">
-                            <h4><a href="#">Product Design</a></h4>
-                            <p>UI/UX, Design</p>
-                        </div>
-                    </div>
-                    <div class="single_study text-center">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="~/img/2.png" />
-                            </a>
-                        </div>
-                        <div class="subheading">
-                            <h4><a href="#">Custom Website</a></h4>
-                            <p>UI/UX, Design</p>
-                        </div>
-                    </div>
-                    <div class="single_study text-center">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="~/img/3.png" />
-                            </a>
-                        </div>
-                        <div class="subheading">
-                            <h4><a href="#">Digital Marketing</a></h4>
-                            <p>UI/UX, Design</p>
-                        </div>
-                    </div>
-                    <div class="single_study text-center">
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="~/img/3.png" />
-                            </a>
-                        </div>
-                        <div class="subheading">
-                            <h4><a href="#">Digital Marketing</a></h4>
-                            <p>UI/UX, Design</p>
-                        </div>
-                    </div>
+                    }
                 </div>
             </div>
         </div>
