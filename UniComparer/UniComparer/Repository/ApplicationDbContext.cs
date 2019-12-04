@@ -7,6 +7,6 @@ namespace UniComparer.Repository
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options) { }
         public DbSet<GradeCategory> GradeCategories { get; set; }
-
+        public DbSet<Grade> Grades { get; set; }
     }
 }

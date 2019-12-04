@@ -17,7 +17,7 @@ namespace UniComparer
             services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlServer(Configuration["Data:UniComparer:ConnectionString"]));
             services.AddTransient<IGradeCategoryRepository, GradeCategoryRepository>();
-
+            services.AddTransient<IGradeRepository, GradeRepository>();
             services.AddMvc();
         }
         public void Configure(IApplicationBuilder app)
