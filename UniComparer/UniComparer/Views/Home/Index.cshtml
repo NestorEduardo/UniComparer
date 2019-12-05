@@ -127,9 +127,6 @@
                     {
                         <a asp-controller="Grades" asp-action="GradesByGradeCategory" asp-route-gradeCategoryId="@gradeCategory.Id">
                             <div class="single_study text-center">
-                                <div class="thumb">
-                                        <img src="~@Url.Content(gradeCategory.ImageUrl)" />
-                                </div>
                                 <div class="subheading">
                                     <h4 class="hover-pink">@gradeCategory.Name</h4>
                                     <p>@gradeCategory.Description</p>
