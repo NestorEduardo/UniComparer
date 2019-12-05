@@ -1,0 +1,63 @@
+﻿@model ICollection<Grade>
+
+@{
+    ViewBag.Title = "Grados";
+}
+
+<div class="bradcam_area">
+    <div class="bradcam_shap">
+        <img src="img/ilstrator/bradcam_ils.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Programas de @Model.FirstOrDefault().GradeCategory.Name</h3>
+                    <nav class="brad_cam_lists">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item active"><a href="/Home/Index#grade-categories">Atr&aacute;s</a></li>
+                            <li class="breadcrumb-item">@Model.FirstOrDefault().GradeCategory.Description</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="case_study_area white_case_study">
+    <div class="patrn_1 d-none d-lg-block">
+        <img src="img/pattern/patrn_1.png" alt="">
+    </div>
+    <div class="patrn_2 d-none d-lg-block">
+        <img src="img/pattern/patrn.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            @foreach (Grade grade in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="single_study text-center white_single_study">
+                        <div class="thumb">
+                            <a href="Case_details.html">
+                                <img src="~/img/@grade.ImageUrl" />
+
+                            </a>
+                        </div>
+                        <div class="subheading white_subheading">
+                            <h4><a href="#">@grade.Name</a></h4>
+                            <p>@grade.Description</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="load_more text-center">
+                    <a class="load_more_btn" href="#">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

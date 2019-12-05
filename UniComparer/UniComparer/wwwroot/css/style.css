@@ -15,6 +15,10 @@
   /* IE6-9 */
 }
 
+h4:hover {
+    color: #ff008c !important;
+}
+
 /* Normal desktop :1200px. */
 /* Normal desktop :992px. */
 /* Tablet desktop :768px. */

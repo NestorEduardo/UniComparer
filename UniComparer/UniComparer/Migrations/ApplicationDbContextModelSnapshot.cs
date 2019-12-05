@@ -29,7 +29,10 @@ namespace UniComparer.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int?>("GradeCategoryId")
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("GradeCategoryId")
                         .HasColumnType("int");
 
                     b.Property<string>("ImageUrl")
@@ -83,9 +86,11 @@ namespace UniComparer.Migrations
 
             modelBuilder.Entity("UniComparer.Models.Grade", b =>
                 {
-                    b.HasOne("UniComparer.Models.GradeCategory", null)
+                    b.HasOne("UniComparer.Models.GradeCategory", "GradeCategory")
                         .WithMany("Grades")
-                        .HasForeignKey("GradeCategoryId");
+                        .HasForeignKey("GradeCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

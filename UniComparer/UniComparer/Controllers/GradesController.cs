@@ -5,14 +5,11 @@ namespace UniComparer.Controllers
 {
     public class GradesController : Controller
     {
-        private readonly IGradeRepository gradeCategoryRepository;
-        public GradesController(IGradeRepository gradeCategoryRepository)
+        private readonly IGradeRepository gradRepository;
+        public GradesController(IGradeRepository gradRepository)
         {
-            this.gradeCategoryRepository = gradeCategoryRepository;
+            this.gradRepository = gradRepository;
         }
-        public IActionResult GradesByGradeCategory()
-        {
-            return View();
-        }
+        public IActionResult GradesByGradeCategory(int gradeCategoryId) => View(gradRepository.GetGradesByGradeCategoryId(gradeCategoryId));
     }
 }

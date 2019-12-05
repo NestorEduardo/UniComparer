@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 using UniComparer.Models;
 using UniComparer.Repository.Abstract;
@@ -8,11 +9,10 @@ namespace UniComparer.Repository
     public class GradeRepository : IGradeRepository
     {
         private readonly ApplicationDbContext context;
-        public GradeRepository(ApplicationDbContext context)
+        public GradeRepository(ApplicationDbContext context) => this.context = context;
+        public ICollection<Grade> GetGradesByGradeCategoryId(int gradeCategoryId)
         {
-            this.context = context;
+            return context.Grades.Where(g => g.IsActive && g.GradeCategoryId == gradeCategoryId).Include(g => g.GradeCategory).ToList();
         }
-
-        public ICollection<Grade> GetGradesByGradeCategoryId(int gradeCategoryId) => context.Grades.Where(g => g.IsActive && g.GradeCategoryId == gradeCategoryId).ToList();
     }
 }
