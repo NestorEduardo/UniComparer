@@ -1,0 +1,63 @@
+﻿@model ICollection<GradeOffer>
+@{
+    ViewBag.Title = "Ofertas de Grado";
+}
+
+<div class="bradcam_area">
+    <div class="bradcam_shap">
+        <img src="img/ilstrator/bradcam_ils.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Ofertas de @Model.FirstOrDefault().Grade.Name</h3>
+                    <nav class="brad_cam_lists">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item active"><a asp-controller="Grades" asp-action="GradesByGradeCategory" asp-route-gradeCategoryId="@Model.FirstOrDefault().Grade.GradeCategoryId">Atr&aacute;s</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">@Model.FirstOrDefault().Grade.Description</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="blog_area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                <div class="blog_left_sidebar">
+                    @foreach (GradeOffer gradeOffer in Model)
+                    {
+                        <a asp-controller="GradeOffer" asp-action="GradeOffersByGradeId" asp-route-gradeId="@gradeOffer.Id">
+                            <article class="blog_item">
+                                <div class="blog_item_img">
+                                    <img class="card-img rounded-0" src="~/img/@gradeOffer.University.ImageUrl" alt="">
+                                </div>
+
+                                <div class="blog_details">
+                                    <a class="d-inline-block" href="single-blog.html">
+                                        <h2>@gradeOffer.University.Name - @gradeOffer.Name</h2>
+                                    </a>
+                                    <p>
+                                        @gradeOffer.Description
+                                    </p>
+                                    <ul class="blog-info-link">
+                                        <li><i class="fa fa-clock-o"></i>@gradeOffer.AcademicPeriodNumber @gradeOffer.AcademicPeriodCategory.Name</li>
+                                        <li><i class="fa fa-clock-o"></i>@gradeOffer.CreditNumbers cr&eacute;ditos</li>
+                                        <li><i class="fa fa-clock-o"></i>@gradeOffer.GradeOfferDuration </li>
+                                        <li><i class="fa fa-money"></i>@gradeOffer.Cost</li>
+                                    </ul>
+                                </div>
+                            </article>
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UniComparer.Repository;
 
 namespace UniComparer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191206013340_GradeOffers")]
+    partial class GradeOffers
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +39,6 @@ namespace UniComparer.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("NumberOfMonths")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -201,13 +200,13 @@ namespace UniComparer.Migrations
                         .WithMany("GradeOffers")
                         .HasForeignKey("AcademicPeriodCategoryId");
 
-                    b.HasOne("UniComparer.Models.Grade", "Grade")
+                    b.HasOne("UniComparer.Models.Grade", null)
                         .WithMany("GradeOffers")
                         .HasForeignKey("GradeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("UniComparer.Models.University", "University")
+                    b.HasOne("UniComparer.Models.University", null)
                         .WithMany("GradeOffers")
                         .HasForeignKey("UniversityId");
                 });
