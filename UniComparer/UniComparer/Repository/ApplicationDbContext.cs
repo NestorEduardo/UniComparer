@@ -11,5 +11,6 @@ namespace UniComparer.Repository
         public DbSet<AcademicPeriodCategory> AcademicPeriodCategories { get; set; }
         public DbSet<GradeOffer> GradeOffers { get; set; }
         public DbSet<University> Universities { get; set; }
+        public DbSet<Campus> Campus { get; set; }
     }
 }

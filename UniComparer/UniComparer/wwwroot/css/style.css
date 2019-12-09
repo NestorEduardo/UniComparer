@@ -298,7 +298,6 @@ h3 {
 
 /* line 211, ../../Arafath/CL/CL October/219. SEO/HTML/scss/theme-default.scss */
 .section-padding {
-  padding-top: 120px;
   padding-bottom: 120px;
 }
 
@@ -5950,46 +5949,46 @@ h6 {
 }
 
 /* line 529, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.blog_details {
-  padding: 30px 0 20px 10px;
-  box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3);
+.blog_details:not(.show-link) {
+    padding: 30px 0 20px 10px;
+    box-shadow: 0px 10px 20px 0px rgba(221, 221, 221, 0.3);
 }
 
 @media (min-width: 768px) {
   /* line 529, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-  .blog_details {
-    padding: 60px 30px 35px 35px;
-  }
+    .blog_details:not(.show-link) {
+        padding: 60px 30px 35px 35px;
+    }
 }
 
 /* line 537, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.blog_details p {
-  margin-bottom: 30px;
+.blog_details:not(.show-link) p {
+    margin-bottom: 30px;
 }
 
 /* line 541, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.blog_details a {
-  color: #ff8b23;
+.blog_details:not(.show-link) a {
+    color: #ff8b23;
 }
 
 /* line 544, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.blog_details a:hover {
-  color: #FF008C;
+.blog_details:not(.show-link) a:hover {
+    color: #FF008C;
 }
 
 /* line 549, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.blog_details h2 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 8px;
+.blog_details:not(.show-link) h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
 }
 
 @media (min-width: 768px) {
   /* line 549, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-  .blog_details h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
+    .blog_details:not(.show-link) h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
 }
 
 /* line 563, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
@@ -6344,9 +6343,9 @@ h6 {
 
 /*============ Start Blog Single Styles  =============*/
 /* line 1049, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.single-post-area .blog_details {
-  box-shadow: none;
-  padding: 0;
+.single-post-area .blog_details:not(.show-link) {
+    box-shadow: none;
+    padding: 0;
 }
 
 /* line 1054, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
@@ -6369,15 +6368,15 @@ h6 {
 }
 
 /* line 1074, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.single-post-area .blog_details {
-  padding-top: 26px;
+.single-post-area .blog_details:not(.show-link) {
+    padding-top: 26px;
 }
 
 /* line 1077, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
-.single-post-area .blog_details p {
-  margin-bottom: 20px;
-  font-size: 15px;
-}
+    .single-post-area .blog_details:not(.show-link) p {
+        margin-bottom: 20px;
+        font-size: 15px;
+    }
 
 /* line 1087, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
 .single-post-area .quote-wrapper {
@@ -7111,3 +7110,15 @@ h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+.li-s-i{
+    list-style:initial;
+}
+
+.bold{
+    font-weight:bold;
+}
+
+.show-link {
+    color: #007bff !important;
+}

@@ -5,6 +5,7 @@ namespace UniComparer.Repository.Abstract
 {
     public interface IGradeOfferRepository
     {
-        public ICollection<GradeOffer> GetGradeOffersByGradeId(int gradeId); 
+        public ICollection<GradeOffer> GetGradeOffersByGradeId(int gradeId);
+        public GradeOffer GetGradeOffer(int gradeOfferId);
     }
 }

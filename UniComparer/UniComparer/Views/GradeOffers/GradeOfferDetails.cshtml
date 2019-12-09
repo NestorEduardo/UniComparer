@@ -1,0 +1,73 @@
+﻿@model GradeOfferDetailsViewModel
+@{
+    ViewBag.Title = $"{Model.GradeOffer.University.Name} - {Model.GradeOffer.Name}";
+}
+
+<!-- bradcam_area  -->
+<div class="bradcam_area">
+    <div class="bradcam_shap">
+        <img src="img/ilstrator/bradcam_ils.png" alt="">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="bradcam_text text-center">
+                    <h3>Oferta de @Model.GradeOffer.Grade.Name</h3>
+                    <nav class="brad_cam_lists">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item active"><a asp-controller="GradeOffers" asp-action="GradeOffersByGrade" asp-route-gradeId="@Model.GradeOffer.Grade.Id">Atr&aacute;s</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">@Model.GradeOffer.Grade.Description</li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /bradcam_area  -->
+<!--================Blog Area =================-->
+<section class="blog_area single-post-area section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 posts-list">
+                <div class="single-post">
+                    <div class="feature-img">
+                        <img class="card-img rounded-0" src="~/img/@Model.GradeOffer.University.ImageUrl" alt="">
+                    </div>
+                    <div class="blog_details">
+                        <h2>
+                            @Model.GradeOffer.University.Name - @Model.GradeOffer.Grade.Name
+                        </h2>
+                        <ul class="blog-info-link mt-3 mb-4">
+                            <li><i class="fa fa-clock-o"></i>@Model.GradeOffer.AcademicPeriodNumber @Model.GradeOffer.AcademicPeriodCategory.Name</li>
+                            <li><i class="fa fa-clock-o"></i>@Model.GradeOffer.CreditNumbers cr&eacute;ditos</li>
+                            <li><i class="fa fa-clock-o"></i>@Model.GradeOffer.GradeOfferDuration </li>
+                            <li><i class="fa fa-money"></i>@Model.GradeOffer.Cost</li>
+                            <li><i class="fa fa-info"></i><a class="show-link" target="_blank" href="@Model.GradeOffer.PensumUrl"> Plan de estudio</a></li>
+                        </ul>
+                        <p class="excert">
+                            @Model.GradeOffer.Description
+                        </p>
+                        <h3>Sobre la universidad</h3>
+                        <div class="navigation-top">
+                            <h4>Campus</h4>
+                            <ul>
+                                @foreach (Campus campus in Model.Campus)
+                                {
+                                    <li class="li-s-i"><span class="bold">@campus.Name: </span><a class="show-link" target="_blank" href="@campus.AddressUrl">@campus.Address</a></li>
+                                }
+                            </ul>
+                            <br />
+                            <h4>Informaci&oacute;n de contacto</h4>
+                            <ul>
+                                <li><i class="fa fa-phone"></i> @Model.GradeOffer.University.PhoneNumber</li>
+                                <li><i class="fa fa-globe"></i><a class="show-link" target="_blank" href="@Model.GradeOffer.University.SiteUrl"> @Model.GradeOffer.University.SiteUrl</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ Blog Area end =================-->

@@ -19,6 +19,7 @@ namespace UniComparer
             services.AddTransient<IGradeCategoryRepository, GradeCategoryRepository>();
             services.AddTransient<IGradeRepository, GradeRepository>();
             services.AddTransient<IGradeOfferRepository, GradeOfferRepository>();
+            services.AddTransient<ICampusRepository, CampusRepository>();
             services.AddMvc();
         }
         public void Configure(IApplicationBuilder app)

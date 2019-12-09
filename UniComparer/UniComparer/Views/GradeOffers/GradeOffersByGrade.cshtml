@@ -21,6 +21,19 @@
                 </div>
             </div>
         </div>
+        <select class="form-control">
+            <option value="">Ordernar Por:</option>
+            <option value="1">Costo de inscripci&oacute;n - Mayor a menor</option>
+            <option value="2">Costo de inscripci&oacute;n - Menor a mayor</option>
+            <option value="3">Costo de cr&eacute;ditos - Mayor a menor</option>
+            <option value="4">Costo de cr&eacute;ditos - Menor a menor</option>
+            <option value="5">Costo de la carrera - Mayor a menor</option>
+            <option value="6">Costo de la carrera - Menor a menor</option>
+            <option value="7">Cantidad de cr&eacute;ditos - Mayor a menor</option>
+            <option value="8">Cantidad de cr&eacute;ditos - Menor a menor</option>
+            <option value="9">Duraci&acute;n de la carrera - Mayor a menor</option>
+            <option value="10">Duraci&oacute;n de la carrera - Menor a mayor</option>
+        </select>
     </div>
 </div>
 
@@ -31,14 +44,15 @@
                 <div class="blog_left_sidebar">
                     @foreach (GradeOffer gradeOffer in Model)
                     {
-                        <a asp-controller="GradeOffer" asp-action="GradeOffersByGradeId" asp-route-gradeId="@gradeOffer.Id">
+
+                        <a asp-controller="GradeOffer" asp-action="GradeOfferDetails" asp-route-gradeOfferId="@gradeOffer.Id">
                             <article class="blog_item">
                                 <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="~/img/@gradeOffer.University.ImageUrl" alt="">
+                                    <img class="card-img rounded-0" src="/img/@gradeOffer.University.ImageUrl" alt="">
                                 </div>
 
                                 <div class="blog_details">
-                                    <a class="d-inline-block" href="single-blog.html">
+                                    <a class="d-inline-block" asp-action="GradeOfferDetails" asp-route-gradeOfferId="@gradeOffer.Id">
                                         <h2>@gradeOffer.University.Name - @gradeOffer.Name</h2>
                                     </a>
                                     <p>
@@ -49,6 +63,7 @@
                                         <li><i class="fa fa-clock-o"></i>@gradeOffer.CreditNumbers cr&eacute;ditos</li>
                                         <li><i class="fa fa-clock-o"></i>@gradeOffer.GradeOfferDuration </li>
                                         <li><i class="fa fa-money"></i>@gradeOffer.Cost</li>
+                                        <li><i class="fa fa-info"></i><a class="show-link" target="_blank" href="@gradeOffer.PensumUrl"> Plan de estudio</a></li>
                                     </ul>
                                 </div>
                             </article>

@@ -9,6 +9,7 @@ namespace UniComparer.Models
         public int AcademicPeriodNumber { get; set; }
         public decimal Cost { get; set; }
         public int GradeId { get; set; }
+        public string PensumUrl { get; set; }
         public virtual AcademicPeriodCategory AcademicPeriodCategory { get; set; }
         public virtual University University { get; set; }
         public virtual Grade Grade { get; set; }
