@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniComparer.Models;
 using UniComparer.Models.ViewModels;
 using UniComparer.Repository.Abstract;
@@ -10,12 +12,26 @@ namespace UniComparer.Controllers
     {
         private readonly IGradeOfferRepository gradeOfferRepository;
         private readonly ICampusRepository campusRepository;
+        private int pageSize = 1;
         public GradeOffersController(IGradeOfferRepository gradeOfferRepository, ICampusRepository campusRepository)
         {
             this.gradeOfferRepository = gradeOfferRepository;
             this.campusRepository = campusRepository;
         }
-        public IActionResult GradeOffersByGrade(int gradeId) => View(gradeOfferRepository.GetGradeOffersByGradeId(gradeId));
+        public IActionResult GradeOffersByGrade(int gradeId, int page = 1)
+        {
+            int skip = (page - 1) * pageSize;
+            ICollection<GradeOffer> gradeOffers = gradeOfferRepository.GetGradeOffersByGradeId(gradeId);
+
+            GradeOfferByGradeViewModel gradeOfferByGradeViewModel = new GradeOfferByGradeViewModel
+            {
+                GradeOffers = gradeOffers.Skip(skip).Take(pageSize).ToList(),
+                CurrentPage = page,
+                TotalPages = (int)Math.Ceiling((double)gradeOffers.Count / pageSize)
+        };
+
+            return View(gradeOfferByGradeViewModel);
+        }
         public IActionResult GradeOfferDetails(int gradeOfferId)
         {
 
