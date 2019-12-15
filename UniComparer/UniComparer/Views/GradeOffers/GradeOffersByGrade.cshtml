@@ -21,119 +21,13 @@
                 </div>
             </div>
         </div>
-        <select class="form-control">
-            <option value="">Ordernar Por:</option>
-            <option value="1">Costo de inscripci&oacute;n - Mayor a menor</option>
-            <option value="2">Costo de inscripci&oacute;n - Menor a mayor</option>
-            <option value="3">Costo de cr&eacute;ditos - Mayor a menor</option>
-            <option value="4">Costo de cr&eacute;ditos - Menor a menor</option>
-            <option value="5">Costo de la carrera - Mayor a menor</option>
-            <option value="6">Costo de la carrera - Menor a menor</option>
-            <option value="7">Cantidad de cr&eacute;ditos - Mayor a menor</option>
-            <option value="8">Cantidad de cr&eacute;ditos - Menor a menor</option>
-            <option value="9">Duraci&acute;n de la carrera - Mayor a menor</option>
-            <option value="10">Duraci&oacute;n de la carrera - Menor a mayor</option>
-        </select>
+
+        @Html.DropDownListFor(m => m.GradeOfferSortingOption, Model.GradeOfferSortingOptions, new { @class = "form-control" })
     </div>
 </div>
+@{
+    await Html.RenderPartialAsync("_GradeOffersList", Model);
+}
 
-<section class="blog_area section-padding">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mb-5 mb-lg-0">
-                <div class="blog_left_sidebar">
-                    @foreach (GradeOffer gradeOffer in Model.GradeOffers)
-                    {
-
-                        <a asp-controller="GradeOffer" asp-action="GradeOfferDetails" asp-route-gradeOfferId="@gradeOffer.Id">
-                            <article class="blog_item">
-                                <div class="blog_item_img">
-                                    <img class="card-img rounded-0" src="/img/@gradeOffer.University.ImageUrl" alt="">
-                                </div>
-
-                                <div class="blog_details">
-                                    <a class="d-inline-block" asp-action="GradeOfferDetails" asp-route-gradeOfferId="@gradeOffer.Id">
-                                        <h2>@gradeOffer.University.Name - @gradeOffer.Name</h2>
-                                    </a>
-                                    <p>
-                                        @gradeOffer.Description
-                                    </p>
-                                    <ul class="blog-info-link">
-                                        <li><i class="fa fa-clock-o"></i>@gradeOffer.AcademicPeriodNumber @gradeOffer.AcademicPeriodCategory.Name</li>
-                                        <li><i class="fa fa-clock-o"></i>@gradeOffer.CreditNumbers cr&eacute;ditos</li>
-                                        <li><i class="fa fa-clock-o"></i>@gradeOffer.GradeOfferDuration </li>
-                                        <li><i class="fa fa-money"></i>@gradeOffer.Cost</li>
-                                        <li><i class="fa fa-info"></i><a class="show-link" target="_blank" href="@gradeOffer.PensumUrl"> Plan de estudio</a></li>
-                                    </ul>
-                                </div>
-                            </article>
-                        </a>
-                    }
-                </div>
-            </div>
-        </div>
-        <ul class="pagination">
-            @{ string previwPageClass = "";}
-
-            @if (Model.CurrentPage == 1)
-            {
-                previwPageClass = "page-item active";
-            }
-            else
-            {
-                previwPageClass = "page-item";
-            }
-
-            <li class="@previwPageClass">
-                @{ int previewPage = Model.CurrentPage - 1;}
-                @{ int nextPage = Model.CurrentPage + 1;}
-                @{ string nextPageClass = "";}
-
-
-                <a class="page-link main-color" asp-controller="GradeOffers" asp-action="GradeOffersByGrade" asp-route-gradeId="@Model.GradeOffers.FirstOrDefault().GradeId" asp-route-page="@previewPage">
-                    <i class="ti-angle-left"></i>
-                </a>
-            </li>
-            @for (int i = 1; i <= Model.TotalPages; i++)
-            {
-                string liClass = "";
-
-                @if (Model.CurrentPage == i)
-                {
-                    liClass = "page-item active";
-                }
-                else
-                {
-                    liClass = "page-item";
-                }
-
-                if (Model.CurrentPage == Model.TotalPages)
-                {
-                    nextPageClass = "page-item active";
-                }
-                else
-                {
-                    nextPageClass = "page-item";
-                }
-
-
-                <li class="@liClass">
-                    <a class="page-link main-color" asp-controller="GradeOffers" asp-action="GradeOffersByGrade" asp-route-gradeId="@Model.GradeOffers.FirstOrDefault().GradeId" asp-route-page="@i">
-                        @i
-                    </a>
-                </li>
-            }
-
-            <li class="@nextPageClass">
-                <a class="page-link" asp-controller="GradeOffers" asp-action="GradeOffersByGrade" asp-route-gradeId="@Model.GradeOffers.FirstOrDefault().GradeId" asp-route-page="@nextPage">
-                    <i class="ti-angle-right"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
-
-</section>
-
-
-
-
+<script src="~/js/jquery-1.12.4.min.js"></script>
+<script src="~/js/grade-offers-by-grade.js"></script>
