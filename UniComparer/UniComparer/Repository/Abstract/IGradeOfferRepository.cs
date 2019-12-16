@@ -8,5 +8,6 @@ namespace UniComparer.Repository.Abstract
     {
         public ICollection<GradeOffer> GetGradeOffersByGradeId(int gradeId, GradeOfferSortingOptions gradeOfferSortingOption);
         public GradeOffer GetGradeOffer(int gradeOfferId);
+        public int GetGradeOffersCount();
     }
 }

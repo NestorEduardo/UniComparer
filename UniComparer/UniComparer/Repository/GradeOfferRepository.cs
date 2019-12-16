@@ -78,5 +78,6 @@ namespace UniComparer.Repository
             return context.GradeOffers.Where(go => go.IsActive && go.Id == gradeOfferId).Include(go => go.University).Include(go => go.Grade).Include(go => go.AcademicPeriodCategory)
                 .FirstOrDefault();
         }
+        public int GetGradeOffersCount() => context.GradeOffers.Count();
     }
 }

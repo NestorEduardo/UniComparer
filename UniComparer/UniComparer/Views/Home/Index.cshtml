@@ -1,4 +1,4 @@
-﻿@model ICollection<GradeCategory>
+﻿@model HomeViewModel
 
 @{
     ViewBag.Title = "Inicio";
@@ -7,7 +7,7 @@
     <img src="~/img/body_shap_2.png" />
 </div>
 <!-- slider_area_start -->
-<div class="slider_area">
+<div  class="slider_area">
     <div class="shap_img_1 d-none d-lg-block">
         <img src="~/img/body_shap_1.png" />
     </div>
@@ -36,37 +36,36 @@
 </div>
 <!-- slider_area_end -->
 <!-- service_area  -->
-<div class="service_area">
+<div id="service-area" class="service_area">
     <div class="container">
         <div class="row">
             <div class="col-xl-4 col-md-4">
                 <div class="single_service text-center">
                     <div class="icon">
+                        <img src="~/img/feature_2.svg" />
+                    </div>
+                    <h3>Busca</h3>
+                    <p>
+                        Busca la oferta de grado que te interese, seg&uacute;n tus metas.
+                    </p>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-4">
+                <div class="single_service text-center">
+                    <div class="icon">
                         <img src="~/img/seo_1.svg" />
                     </div>
-                    <h3>SEO/SEM</h3>
-                    <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.</p>
-                    <a href="#" class="boxed-btn3-text">Learn More</a>
+                    <h3>Compara</h3>
+                    <p>Compara entre los distintos resultados siguiendo tus propios criterios.</p>
                 </div>
             </div>
             <div class="col-xl-4 col-md-4">
                 <div class="single_service text-center">
                     <div class="icon">
-                        <img src="~/img/seo_2.svg" />
+                        <img src="~/img/feature_6.svg" />
                     </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.</p>
-                    <a href="#" class="boxed-btn3-text">Learn More</a>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-4">
-                <div class="single_service text-center">
-                    <div class="icon">
-                        <img src="~/img/seo_3.svg" />
-                    </div>
-                    <h3>Social Media</h3>
-                    <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.</p>
-                    <a href="#" class="boxed-btn3-text">Learn More</a>
+                    <h3>Da el pazo</h3>
+                    <p>Contacta a la entidad educativa para que des el gran paso.</p>
                 </div>
             </div>
         </div>
@@ -75,7 +74,7 @@
 </div>
 <!--/ service_area  -->
 <!-- compapy_info  -->
-<div class="compapy_info">
+<div id="about-us" class="compapy_info">
     <div class="container">
         <div class="row">
             <div class="col-xl-5 col-md-5">
@@ -86,15 +85,12 @@
             <div class="col-xl-7 col-md-7">
                 <div class="company_info">
                     <h3>
-                        We are an SEO company that <br>
-                        specializes in developing.
+                        Acerca de<br>
+                        Uni Comparer.
                     </h3>
                     <p>
-                        Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing. Apartments frequently or motionless on reasonable.
-                        Steem spirit temper too say adieus who direct esteem.
+                        Uni Comparer es un portal comparativo de ofertas acad&eacute;micas de educaci&oacute;n superior que busca hacer de elecci&oacute;n de carrera y universidad un proceso mas &aacute;gil.
                     </p>
-
-                    <a href="#" class="boxed-btn3">About Us</a>
                 </div>
             </div>
         </div>
@@ -123,7 +119,7 @@
         <div class="row">
             <div class="col-xl-12">
                 <div class="case_active owl-carousel">
-                    @foreach (GradeCategory gradeCategory in Model)
+                    @foreach (GradeCategory gradeCategory in Model.GradeCategories)
                     {
                         <a asp-controller="Grades" asp-action="GradesByGradeCategory" asp-route-gradeCategoryId="@gradeCategory.Id">
                             <div class="single_study text-center">
@@ -141,25 +137,26 @@
 </div>
 <!--/ case_study_area  -->
 <!-- accordion_area  -->
-<div class="accordion_area">
+<div id="why-uni-comparer" class="accordion_area">
     <div class="container">
         <div class="row align-items-center">
 
             <div class="col-xl-6 col-lg-6">
                 <div class="faq_ask">
-                    <h3>Why Choose Us</h3>
+                    <h3>&iquest;Por qu&eacute; usar<br />
+                    Uni Comparer?</h3>
                     <div id="accordion">
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Adieus who direct esteem <span>It esteems luckily?</span>
+                                        Contamos con un amplio repositorio
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion" style="">
                                 <div class="card-body">
-                                    Esteem spirit temper too say adieus who direct esteem esteems luckily or picture placing drawing.
+                                    Tenemos mas de @Model.UniversitiesCount entidades acad&eacute;micas, mas @Model.GradesCount grados y mas de @Model.GradeOffersCount ofertas de grado.
                                 </div>
                             </div>
                         </div>
@@ -167,13 +164,13 @@
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                        Who direct esteem It esteems?
+                                        Resultados imparciales
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion" style="">
                                 <div class="card-body">
-                                    Esteem spirit temper too say adieus who direct esteem esteems luckily or picture placing drawing.
+                                    Mostramos los resultados seg&uacute;n el criterio de orden que t&uacute; mismo elijas.
                                 </div>
                             </div>
                         </div>
@@ -181,13 +178,13 @@
                             <div class="card-header" id="headingThree">
                                 <h5 class="mb-0">
                                     <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Duis consectetur feugiat auctor?
+                                        Es gratis 
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion" style="">
                                 <div class="card-body">
-                                    Esteem spirit temper too say adieus who direct esteem esteems luckily or picture placing drawing.
+                                    Usar Uni Comparer es gratis para todos los usuarios.
                                 </div>
                             </div>
                         </div>
@@ -204,145 +201,3 @@
 
 </div>
 <!--/ accordion_area  -->
-<!-- features_area  -->
-<div class="features_area">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="section_title text-center">
-                    <h3>
-                        We have some awesome features <br>
-                        to rank your business
-                    </h3>
-                    <p>Esteem spirit temper too say adieus who direct esteem. It esteems luckily or <br> picture placing drawing. </p>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xl-4 col-md-6 col-lg-4">
-                <div class="single_feature">
-                    <div class="icon">
-                        <img src="~/img/feature_1.svg" />
-                    </div>
-                    <h4>Custom design</h4>
-                    <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6 col-lg-4">
-                <div class="single_feature">
-                    <div class="icon">
-                        <img src="~/img/feature_2.svg" />
-                    </div>
-                    <h4>Paid Search result</h4>
-                    <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6 col-lg-4">
-                <div class="single_feature">
-                    <div class="icon">
-                        <img src="~/img/feature_3.svg" />
-                    </div>
-                    <h4>Global Search option</h4>
-                    <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6 col-lg-4">
-                <div class="single_feature">
-                    <div class="icon">
-                        <img src="~/img/feature_4.svg" />
-                    </div>
-                    <h4>Email Marketing</h4>
-                    <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6 col-lg-4">
-                <div class="single_feature">
-                    <div class="icon">
-                        <img src="~/img/feature_5.svg" />
-                    </div>
-                    <h4>Custom Software</h4>
-                    <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                </div>
-            </div>
-            <div class="col-xl-4 col-md-6 col-lg-4">
-                <div class="single_feature">
-                    <div class="icon">
-                        <img src="~/img/feature_6.svg" />
-                    </div>
-                    <h4>Setup business goal</h4>
-                    <p>Esteem spirit temper too say adieus who direct esteem.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--/ features_area  -->
-<!-- testimonial_area  -->
-<div class="testimonial_area ">
-    <div class="container">
-        <div class="row">
-            <div class="col-xl-12">
-                <div class="testmonial_active owl-carousel">
-                    <div class="single_carousel">
-                        <div class="single_testmonial text-center">
-                            <div class="quote">
-                                <img src="~/img/quote.svg" />
-                            </div>
-                            <p>
-                                Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.  <br>
-                                Fusce ac mattis nulla. Morbi eget ornare dui.
-                            </p>
-                            <div class="testmonial_author">
-                                <div class="thumb">
-                                    <img src="~/img/thumb.png" />
-                                </div>
-                                <h3>Robert Thomson</h3>
-                                <span>Business Owner</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_carousel">
-                        <div class="single_testmonial text-center">
-                            <div class="quote">
-                                <img src="~/img/quote.svg" />
-                            </div>
-                            <p>
-                                Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.  <br>
-                                Fusce ac mattis nulla. Morbi eget ornare dui.
-                            </p>
-                            <div class="testmonial_author">
-                                <div class="thumb">
-                                    <img src="~/img/thumb.png" />
-                                </div>
-                                <h3>Robert Thomson</h3>
-                                <span>Business Owner</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single_carousel">
-                        <div class="single_testmonial text-center">
-                            <div class="quote">
-                                <img src="~/img/quote.svg" />
-                            </div>
-                            <p>
-                                Donec imperdiet congue orci consequat mattis. Donec rutrum porttitor <br>
-                                sollicitudin. Pellentesque id dolor tempor sapien feugiat ultrices nec sed neque.  <br>
-                                Fusce ac mattis nulla. Morbi eget ornare dui.
-                            </p>
-                            <div class="testmonial_author">
-                                <div class="thumb">
-                                    <img src="~/img/thumb.png" />
-                                </div>
-                                <h3>Robert Thomson</h3>
-                                <span>Business Owner</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- /testimonial_area  -->

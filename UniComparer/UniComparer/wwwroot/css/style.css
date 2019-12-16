@@ -7139,3 +7139,11 @@ h6 {
 .show-link {
     color: #007bff !important;
 }
+
+.m-w-147{
+    max-width:147px;
+}
+
+#navigation {
+    cursor: pointer;
+}

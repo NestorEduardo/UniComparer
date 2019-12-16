@@ -28,43 +28,22 @@
                     <div class="row align-items-center">
                         <div class="col-xl-3 col-lg-2">
                             <div class="logo">
-                                <a href="index.html">
-                                    <img src="~/img/logo.png" />
+                                <a href="/#">
+                                    <img class="m-w-147" src="~/img/logo.png" />
                                 </a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-7">
-                            <div class="main-menu  d-none d-lg-block">
+                            <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="index.html">home</a></li>
-                                        <li>
-                                            <a href="#">pages <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="Case_details.html">Case  details</a></li>
-                                                <li><a href="about.html">about</a></li>
-                                                <li><a href="elements.html">elements</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="services.html">Services</a></li>
-                                        <li><a href="Case_Study.html">Case Study</a></li>
-                                        <li>
-                                            <a href="#">blog <i class="ti-angle-down"></i></a>
-                                            <ul class="submenu">
-                                                <li><a href="blog.html">blog</a></li>
-                                                <li><a href="single-blog.html">single-blog</a></li>
-                                            </ul>
-                                        </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="/#" id="home">inicio</a></li>
+                                        <li><a id="services">servicios</a></li>
+                                        <li><a id="about">uni Comparer</a></li>
+                                        <li><a id="compare">compara</a></li>
+                                        <li><a id="adventajes">ventajas</a></li>
                                     </ul>
                                 </nav>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                            <div class="Appointment">
-                                <div class="book_btn d-none d-lg-block">
-                                    <a href="#"> <i class="fa fa-phone"></i> +10 673 567 367</a>
-                                </div>
                             </div>
                         </div>
                         <div class="col-12">
@@ -81,23 +60,6 @@
     @RenderBody()
 
     <footer class="footer">
-        <div class=" container">
-            <div class="pro_border">
-                <div class="row">
-                    <div class="col-xl-6 col-md-6">
-                        <div class="lets_projects">
-                            <h3>Let’s Start your project, <a href="#">Mail Us</a> </h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6">
-                        <div class="phone_number">
-                            <h3>+10 673 563 629</h3>
-                            <a href="#">support@seogo.com</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="footer_top">
             <div class="container">
                 <div class="row">
@@ -105,11 +67,11 @@
                         <div class="footer_widget">
                             <div class="footer_logo">
                                 <a href="#">
-                                    <img src="~/img/footer_logo.png" />
+                                    <img class="m-w-147" src="~/img/logo.png" />
                                 </a>
                             </div>
                             <p>
-                                Esteem spirit temper too say adieus who direct esteem. It esteems luckily or picture placing drawing.
+                                Buscamos hacer de la elecci&oacute;n de carrera y universidad un proceso mas &aacute;gil.
                             </p>
                             <div class="socail_links">
                                 <ul>
@@ -133,46 +95,6 @@
 
                         </div>
                     </div>
-                    <div class="col-xl-2 col-md-6 col-lg-3">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Services
-                            </h3>
-                            <ul>
-                                <li><a href="#">Marketing &amp; SEO</a></li>
-                                <li><a href="#"> Startup</a></li>
-                                <li><a href="#">Finance solution</a></li>
-                                <li><a href="#">Food</a></li>
-                                <li><a href="#">Travel</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-6 col-lg-2">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Useful Links
-                            </h3>
-                            <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#"> Contact</a></li>
-                                <li><a href="#">Appointment</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 offset-xl-1 col-md-6 col-lg-4">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                Subscribe
-                            </h3>
-                            <form action="#" class="newsletter_form">
-                                <input type="text" placeholder="Enter your mail">
-                                <button type="submit">Subscribe</button>
-                            </form>
-                            <p class="newsletter_text">Esteem spirit temper too say adieus who direct esteem esteems luckily.</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -184,7 +106,7 @@
                         <p class="copy_right text-center">
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             Copyright &copy;
-                            <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                            <span id="date"></span> Todos los derechos reservados| This site was made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://www.linkedin.com/in/nestordelacruz/" target="_blank">me</a>
                             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                         </p>
                     </div>

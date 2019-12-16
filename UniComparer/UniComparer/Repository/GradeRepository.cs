@@ -14,5 +14,6 @@ namespace UniComparer.Repository
         {
             return context.Grades.Where(g => g.IsActive && g.GradeCategoryId == gradeCategoryId).Include(g => g.GradeCategory).ToList();
         }
+        public int GetGradesCount() => context.Grades.Count();
     }
 }
