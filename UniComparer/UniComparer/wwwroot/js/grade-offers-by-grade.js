@@ -8,7 +8,7 @@
         contentType: 'application/json; charset=utf-8',
         data: { gradeId: gradeId, gradeOfferSortingOption: gradeOfferSortingOption, partialView: true },
         dataType: 'json',
-        complete: function (response, textStatus) {
+        complete: function (response) {
             $('#grade-offers-result').html(response.responseText);
         }
     });

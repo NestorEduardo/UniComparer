@@ -7,5 +7,6 @@ namespace UniComparer.Repository.Abstract
     {
         public ICollection<Grade> GetGradesByGradeCategoryId(int gradeCategoryId);
         public int GetGradesCount();
+        public ICollection<Grade> GetGradesByGradeCategoryId(int gradeCategoryId, string search);
     }
 }
