@@ -38,7 +38,71 @@
                 }
             }
         </div>
+        @if (Model.Grades.Count > 0)
+        {
+
+        <ul class="pagination">
+            @{ string previwPageClass = "";}
+
+            @if (Model.CurrentPage == 1)
+            {
+                previwPageClass = "page-item active";
+            }
+            else
+            {
+                previwPageClass = "page-item";
+            }
+
+            <li class="@previwPageClass">
+                @{ int previewPage = Model.CurrentPage - 1;}
+                @{ int nextPage = Model.CurrentPage + 1;}
+                @{ string nextPageClass = "";}
+
+
+                <a class="page-link main-color" asp-controller="Grades" asp-action="GradesByGradeCategory" asp-route-gradeCategoryId="@Model.Grades.FirstOrDefault().GradeCategoryId" asp-route-search="@Model.Search" asp-route-page="@previewPage">
+                    <i class="ti-angle-left"></i>
+                </a>
+            </li>
+            @for (int i = 1; i <= Model.TotalPages; i++)
+            {
+                string liClass = "";
+
+                @if (Model.CurrentPage == i)
+                {
+                    liClass = "page-item active";
+                }
+                else
+                {
+                    liClass = "page-item";
+                }
+
+                if (Model.CurrentPage == Model.TotalPages)
+                {
+                    nextPageClass = "page-item active";
+                }
+                else
+                {
+                    nextPageClass = "page-item";
+                }
+
+
+                <li class="@liClass">
+                    <a class="page-link main-color" asp-controller="Grades" asp-action="GradesByGradeCategory" asp-route-gradeCategoryId="@Model.Grades.FirstOrDefault().GradeCategoryId" asp-route-search="@Model.Search" asp-route-page="@i">
+                        @i
+                    </a>
+                </li>
+            }
+
+            <li class="@nextPageClass">
+                <a class="page-link" asp-controller="Grades" asp-action="GradesByGradeCategory" asp-route-gradeCategoryId="@Model.Grades.FirstOrDefault().GradeCategoryId" asp-route-search="@Model.Search" asp-route-page="@nextPage">
+                    <i class="ti-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+        
+        }
     </div>
+
 </div>
 
 <script src="~/js/jquery-1.12.4.min.js"></script>
