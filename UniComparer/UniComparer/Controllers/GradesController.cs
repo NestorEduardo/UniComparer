@@ -6,7 +6,7 @@ using UniComparer.Models;
 using UniComparer.Models.ViewModels;
 using UniComparer.Repository.Abstract;
 
-namespace UniComparer.Controllers
+namespace UniComparer.Controllers                                       
 {
     public class GradesController : Controller
     {

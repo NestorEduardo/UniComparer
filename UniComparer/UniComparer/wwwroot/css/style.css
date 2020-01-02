@@ -5469,7 +5469,9 @@ h6 {
         -webkit-transition: 0.5s;
         transition: 0.5s;
     }
-
+page-link main-color:hover {
+    color: #FF008C;
+}
 /* line 24, ../../Arafath/CL/CL October/219. SEO/HTML/scss/_blog.scss */
 .single-blog {
     overflow: hidden;
