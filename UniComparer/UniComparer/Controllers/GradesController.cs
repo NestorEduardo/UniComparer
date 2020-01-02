@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UniComparer.Models;
 using UniComparer.Models.ViewModels;
 using UniComparer.Repository.Abstract;
@@ -9,13 +11,20 @@ namespace UniComparer.Controllers
     public class GradesController : Controller
     {
         private readonly IGradeRepository gradeRepository;
+        private int pageSize = 1;
         public GradesController(IGradeRepository gradeRepository)
         {
             this.gradeRepository = gradeRepository;
         }
-        public IActionResult GradesByGradeCategory(int gradeCategoryId, string search = "", bool partialView = false)
+        public IActionResult GradesByGradeCategory(int gradeCategoryId, string search = "", bool partialView = false, int page = 1)
         {
-           GradesByGradeCategoryViewModel gradesByGradeCategoryViewModel = new GradesByGradeCategoryViewModel();
+            int skip = (page - 1) * pageSize;
+            
+            GradesByGradeCategoryViewModel gradesByGradeCategoryViewModel = new GradesByGradeCategoryViewModel
+            {
+                CurrentPage = page,
+                Search = search
+            };
 
             if (string.IsNullOrEmpty(search))
             {
@@ -25,6 +34,9 @@ namespace UniComparer.Controllers
             {
                 gradesByGradeCategoryViewModel.Grades = gradeRepository.GetGradesByGradeCategoryId(gradeCategoryId, search);
             }
+
+            gradesByGradeCategoryViewModel.TotalPages = (int)Math.Ceiling((double)gradesByGradeCategoryViewModel.Grades.Count / pageSize);
+            gradesByGradeCategoryViewModel.Grades = gradesByGradeCategoryViewModel.Grades.Skip(skip).Take(pageSize).ToList();
 
             if (!partialView)
             {
